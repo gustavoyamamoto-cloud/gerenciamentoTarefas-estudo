@@ -1,37 +1,25 @@
-package gerenciamentoTarefas.entity;
+package gerenciamentoTarefas.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import ch.qos.logback.core.status.Status;
 
-@Entity 
-@Table(name = "tarefas")
-public class Tarefa {
-
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TarefaResponse {
+    
     private Long id;
-
     private String titulo;
     private String descricao;
     private Status status;
     private LocalDate dataCriacao;
 
-    public Tarefa() {}
-    
-    public Tarefa(Long id, String titulo, String descricao, Status status, LocalDate dataCriacao) {
+    public TarefaResponse(Long id, String titulo, String descricao, Status status, LocalDate dataCriacao) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = status;
         this.dataCriacao = dataCriacao;
     }
-
-
+    
 	public Long getId() {
 		return id;
 	}
@@ -62,8 +50,5 @@ public class Tarefa {
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-
-    
-
     
 }

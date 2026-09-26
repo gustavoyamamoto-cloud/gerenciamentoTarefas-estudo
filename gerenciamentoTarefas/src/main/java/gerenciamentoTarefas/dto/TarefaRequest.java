@@ -2,7 +2,7 @@ package gerenciamentoTarefas.dto;
 
 import java.time.LocalDate;
 
-import ch.qos.logback.core.status.Status;
+import gerenciamentoTarefas.entity.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;

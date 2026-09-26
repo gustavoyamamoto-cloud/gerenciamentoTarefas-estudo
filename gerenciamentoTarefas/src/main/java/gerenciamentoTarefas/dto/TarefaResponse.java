@@ -2,7 +2,7 @@ package gerenciamentoTarefas.dto;
 
 import java.time.LocalDate;
 
-import ch.qos.logback.core.status.Status;
+import gerenciamentoTarefas.entity.Status;
 
 public class TarefaResponse {
     

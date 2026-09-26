@@ -3,12 +3,25 @@ package gerenciamentoTarefas.dto;
 import java.time.LocalDate;
 
 import ch.qos.logback.core.status.Status;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 public class TarefaRequest {
     
+    @NotBlank(message = "titulo obrigatorio")
+    @Size(min = 3)
     private String titulo;
+
+    @NotBlank(message = "Descrição obrigatoria")
     private String descricao;
+
+    @NotNull(message = "Status obrigatorio")
     private Status status;
+
+    @NotNull(message = "Data obrigatoria")
+    @PastOrPresent(message = "Data deve ser passada ou presente")
     private LocalDate dataCriacao;
 
     public TarefaRequest() {}

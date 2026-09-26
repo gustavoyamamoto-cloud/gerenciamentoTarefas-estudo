@@ -3,6 +3,7 @@ package gerenciamentoTarefas.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,5 +34,10 @@ public class TarefaController {
     public TarefaResponse cadastrar(@Valid @RequestBody TarefaRequest novaTarefa){
         return service.cadastrar(novaTarefa);
     } 
+
+    @GetMapping("/{id}")
+    public TarefaResponse buscar(@PathVariable Long id){
+        return service.buscar(id);
+    }
 
 }

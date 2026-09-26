@@ -8,6 +8,7 @@ import gerenciamentoTarefas.dto.TarefaRequest;
 import gerenciamentoTarefas.dto.TarefaResponse;
 import gerenciamentoTarefas.entity.Tarefa;
 import gerenciamentoTarefas.repository.TarefaRepository;
+import gerenciamentoTarefas.validation.RecursoNaoEncontradoException;
 
 @Service 
 public class TarefaService {
@@ -52,5 +53,20 @@ public class TarefaService {
                                 tarefa.getDataCriacao()
                     );
 
+    }
+
+    //Buscar por id
+    public TarefaResponse buscar(Long id){
+        
+        Tarefa tarefa = repository.findById(id)
+                                .orElseThrow(() -> new RecursoNaoEncontradoException("Id não encontrado"));
+
+        return new TarefaResponse(
+                                tarefa.getId(),
+                                tarefa.getTitulo(),
+                                tarefa.getDescricao(),
+                                tarefa.getStatus(),
+                                tarefa.getDataCriacao()
+                    );
     }
 }

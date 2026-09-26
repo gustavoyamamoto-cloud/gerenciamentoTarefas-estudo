@@ -91,4 +91,10 @@ public class TarefaService {
                                 tarefa.getDataCriacao()
                     );
     }
+
+    //Deletar
+    public void deletar(Long id){
+        buscar(id);
+        repository.deleteById(id);
+    }
 }

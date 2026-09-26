@@ -2,6 +2,7 @@ package gerenciamentoTarefas.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,11 @@ public class TarefaController {
     @PutMapping("/{id}")
     public TarefaResponse atualizar(@PathVariable Long id, @Valid @RequestBody TarefaRequest novaTarefa){
         return service.atualizar(id, novaTarefa);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id){
+        service.deletar(id);
     }
 
 }
